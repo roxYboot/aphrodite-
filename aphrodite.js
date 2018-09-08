@@ -218,6 +218,7 @@ ${prefix}pause ⇏ إيقآف الأغنية مؤقتا
 ${prefix}resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
 ${prefix}vol ⇏ لتغيير درجة الصوت 100 - 0
 ${prefix}stop ⇏ لإخرآج البوت من الروم
+${prefix}repeat ⇏ لتكرار الاغنيه
 ${prefix}join ⇏ لدخول البوت الروم
  `)
    message.channel.sendEmbed(embed)
@@ -226,7 +227,13 @@ ${prefix}join ⇏ لدخول البوت الروم
    }); 
 
 
-
+	case "repeat":
+			if (isPlaying) {
+				queue.splice(1, 0, queue[0]);
+				songsQueue.splice(1, 0, songsQueue[0]);
+				message.reply(`**${songsQueue[0]}** will be played again.`);
+			}
+			break;
 
 
 
