@@ -227,14 +227,6 @@ ${prefix}join ⇏ لدخول البوت الروم
    }); 
 
 
-	case "repeat":
-			if (isPlaying) {
-				queue.splice(1, 0, queue[0]);
-				songsQueue.splice(1, 0, songsQueue[0]);
-				message.reply(`**${songsQueue[0]}** will be played again.`);
-			}
-			break;
-
 
 
 client.on('message', function(message) {
@@ -256,7 +248,7 @@ client.on('message', function(message) {
            msg.delete(5000);
           message.delete(5000);
         });
-    } else if(message.content.startsWith(prefix + "play")) {
+    } else if(message.content.startsWith(prefix + "playing")) {
 				        if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
         client.user.setGame(args);
